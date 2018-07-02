@@ -1,0 +1,31 @@
+from django.conf.urls import url
+
+from . import views
+urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    url(r'^usersignup/$',views.usersignup, name='usersignup'),
+    url(r'^userlogin/$',views.userlogin,name='userlogin'),
+    url(r'^logout_user/$', views.logout_user, name='logout_user'),
+    url(r'^userlogin/(?P<uid>\d+)/$',views.homepage,name='homepage'),
+    url(r'^userlogin/(?P<uid>\d+)/mylibrary/$',views.mylibrary,name='mylibrary'),
+    url(r'^userlogin/(?P<uid>\d+)/genre/(?P<gen>\D+)/$',views.genre,name='genre'),
+    url(r'^userlogin/(?P<uid>\d+)/joingroup/$',views.joingroup,name='joingroup'),
+    url(r'^userlogin/(?P<uid>\d+)/joingroup/(?P<gid>\d+)/$',views.join,name='join'),
+    url(r'^userlogin/(?P<uid>\d+)/joinevent/$',views.joinevent,name='attend'),
+    url(r'^userlogin/(?P<uid>\d+)/books/$',views.books,name='books'),
+    url(r'^userlogin/(?P<uid>\d+)/download/(?P<isbn>(\d|-)+)/$',views.download,name='download'),
+    url(r'^userlogin/(?P<uid>\d+)/books/(?P<isbn>(\d|-)+)/$', views.detail, name='details'),
+    url(r'^authorsignup/$', views.authorsignup, name='authorsignup'),
+    url(r'^authorlogin/$',views.authorlogin,name='authorlogin'),
+    url(r'^logout_author/$',views.logout_author,name='logout_author'),
+    url(r'^authorlogin/(?P<aid>\d+)/$',views.authorhomepage,name='authorhomepage'),
+    url(r'^authorlogin/(?P<aid>\d+)/addbook/$',views.addbook,name='addbook'),
+    url(r'^userlogin/(?P<uid>\d+)/books/(?P<isbn>(\d|-)+)/borrow/$',views.borrow,name='borrow'),
+    url(r'^authorlogin/(?P<aid>\d+)/deletebook/$',views.deletebook,name='deletebook'),
+    url(r'^authorlogin/(?P<aid>\d+)/deletebook/delete/(?P<isbn>(\d|-)+)/$',views.deleteb,name='deleteb'),
+    url(r'^authorlogin/(?P<aid>\d+)/deletebook/edit/(?P<isbn>(\d|-)+)/$',views.editb,name='editb'),
+    url(r'^authorlogin/(?P<aid>\d+)/addevent/$',views.addevent,name='addevent'),
+    url(r'^authorlogin/(?P<aid>\d+)/deleteevent/$',views.deleteevent,name='deleteevent'),
+    url(r'^authorlogin/(?P<aid>\d+)/deleteevent/delete/(?P<title>\D+)/$',views.deleteeve,name='deleteeve'),
+    url(r'^authorlogin/(?P<aid>\d+)/deleteevent/edit/(?P<title>\D+)/$',views.editeve,name='editeve'),
+]

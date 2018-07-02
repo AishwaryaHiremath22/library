@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if auth_detail %}
+        <h2>books written by author {{ auth.Fname }} are</h2>
+        {% for i in auth_detail %}
+        <li> {{i.Isbn}} {{  }}</li>
+        {% endfor %}
+    {% else %}
+        <h2>No details</h2>
+    {% endif %}
+
+</body>
+</html>

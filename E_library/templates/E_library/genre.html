@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"href="{% static 'E_library/style.css' %}"/>
+
+{% for i in a %}
+    {% for j in b %}
+        {% if i.Isbn_id == j.Isbn %}
+            <p><img src = "{{ j.Cover.url }}" class="img-responsive" width = "400"  height="400"></p> <h5 style="color: black">Title: {{ j.Title }}</h5> <h5 style="color: black;">Price : Rs {{ j.Price }}&nbsp;&nbsp;<a href="/E_library/userlogin/{{ uid }}/download/{{ j.Isbn }}/"><button type="">Buy</button></a></h5>
+
+        {% endif %}
+        {% endfor %}
+{% endfor %}

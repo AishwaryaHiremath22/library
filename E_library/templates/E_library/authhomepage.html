@@ -1,0 +1,49 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"href="{% static 'E_library/style.css' %}"/>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           <a class="navbar-brand" href = "{% url 'E_library:index' %}">E_LIBRARY</a>
+            <ul class="nav navbar-nav navbar-right">
+                     <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn">BOOKS
+                                <span class="glyphicon glyphicon_link" aria-hidden="true"></span>
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="/E_library/authorlogin/{{ aid }}/addbook/">ADD BOOK</a>
+                                <a href="/E_library/authorlogin/{{ aid }}/deletebook/">DELETE/EDIT</a>
+                            </div>
+                    </li>
+
+                    <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn">EVENTS
+                                <span class="glyphicon glyphicon_link" aria-hidden="true"></span>
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="/E_library/authorlogin/{{ aid }}/addevent/">ADD EVENT</a>
+                                <a href="/E_library/authorlogin/{{ aid }}/deleteevent/">DELETE/EDIT</a>
+                            </div>
+                    </li>
+
+                    <li style="float:right" class="nav navbar-nav navbar-right">
+                        <a href="/E_library/authorlogin/">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
+                            LOG OUT
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div align="center">
+            <img src = "http://sites.psu.edu/wp-content/uploads/2015/05/shutterstock_170760092.mini_.jpg" width="1200" height="1000">
+</div>

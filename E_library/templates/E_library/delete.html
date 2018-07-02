@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"href="{% static 'E_library/style.css' %}"/>
+
+<link rel="stylesheet" type="text/css" href="{% static 'E_library/style.css' %}"/>
+
+{% for i in book %}
+    {% for j in all_book %}
+        {% if i.Isbn_id == j.Isbn %}
+             <div class="col-sm-3 col-lg-2">
+                 <div>
+                     <p><br><img src = "{{ j.Cover.url }}" width = "200"  height="200" class="img-responsive"><br></p>
+                     <p style="color: deeppink">{{ i.Isbn }}</p>
+                 </div>
+                 <a href="/E_library/authorlogin/{{ aid }}/deletebook/delete/{{ i.Isbn_id }}/">DELETE</a>&nbsp;&nbsp;
+                 &nbsp;<a href="/E_library/authorlogin/{{ aid }}/deletebook/edit/{{ i.Isbn_id }}/">EDIT</a>
+            </div>
+        {% endif %}
+    {%endfor  %}
+{% endfor %}

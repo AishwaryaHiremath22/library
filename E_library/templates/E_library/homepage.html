@@ -1,0 +1,101 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"href="{% static 'E_library/style.css' %}"/>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           <a class="navbar-brand" href = "/E_library/userlogin/{{ uid }}/">E_LIBRARY</a>
+
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                     <li class="nav navbar-nav navbar-right">
+                        <a href="/E_library/userlogin/{{ uid }}/mylibrary/">
+                            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp; MY LIBRARY
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="/E_library/userlogin/{{ uid }}/joingroup/">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; JOIN GROUP
+                        </a>
+
+                    </li>
+
+                    <li class="nav navbar-nav navbar-right">
+                        <a href="/E_library/userlogin/{{ uid }}/joinevent/">
+                            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>&nbsp; ATTEND EVENT
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn">GENRE
+                                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                            </a>
+                            <div class="dropdown-content">
+                                {% for i in genre %}
+                                    <a href="/E_library/userlogin/{{ uid }}/genre/{{ i.genre }}">{{ i.genre }}</a>
+                                {% endfor %}
+                            </div>
+                    </li>
+
+                    <li class="nav navbar-nav navbar-right">
+                        <a href="/E_library/logout_user/">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; LOG OUT
+                        </a>
+                    </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search" method="get" action="/E_library/userlogin/{{ uid }}/books/">
+                    <div class="form-group">
+                        <label>
+                            <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+    <h2>Books recommended for you</h2>
+
+    {% for i in b %}
+        {% for j in auth %}
+            {% if i.Isbn == j.Isbn_id %}
+                 <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail" style="width: 200px; height: 430px">
+                        <p><img src = "{{ i.Cover.url }}" class="img-responsive" width = "400"  height="400"></p>
+                        <div class = caption>
+                             <h5 style="color: black">Title: {{ i.Title }}</h5>
+                             <h5 style="color: black;">Author: {{ j.A_id }}</h5>
+                            <h5 style="color: black;">Price : Rs {{ i.Price }}&nbsp;&nbsp;<a href="/E_library/userlogin/{{ uid }}/download/{{ i.Isbn }}/"><button type="">Buy</button></a></h5>
+
+                        </div>
+                </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% if i == 1 %}
+            <a href="/E_library/userlogin/{{ uid }}/all_books/">more</a>
+        {% endif %}
+
+    {% endfor %}
+
+</body>
+</html>

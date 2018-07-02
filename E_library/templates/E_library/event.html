@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EVENTS</title>
+</head>
+<body>
+    <h2 style="color: deeppink; font-family: 'Bradley Hand ITC',cursive">Events organised by authors</h2>
+    <table>
+        <tr>
+            <th style="color: blueviolet; font-family: 'Bradley Hand ITC',cursive"><h2>TITLE </h2></th>
+            <th style="color:blueviolet; font-family: 'Bradley Hand ITC',cursive"><h2>AUTHOR NAME</h2></th>
+            <th style="color: blueviolet; font-family: 'Bradley Hand ITC',cursive"><h2>DATE</h2></th>
+            <th style="color: blueviolet; font-family: 'Bradley Hand ITC',cursive"><h2>LOCATION</h2></th>
+        </tr>
+        {% for i in all_events %}
+        <tr>
+            <td>{{ i.E_title }}</td>
+            <td>{{ i.A_id }}</td>
+            <td>{{ i.DateE }}</td>
+            <td>{{ i.Location }}</td>
+        </tr>
+            {% endfor %}
+    </table>
+
+
+</body>
+</html>

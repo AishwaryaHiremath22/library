@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'E_library/style.css' %}"/>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           <a class="navbar-brand" href = "{% url 'E_library:index' %}">E_LIBRARY</a>
+
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="/E_library/userlogin/">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp; USERLOGIN
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="/E_library/usersignup/">
+                        <span class="glyphicon glyphicon-on" aria-hidden="true"></span>&nbsp; USERSIGNUP
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar">
+                <li class="">
+                    <a href="/E_library/authorlogin/">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> AUTHORLOGIN
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/E_library/authorsignup/">
+                        <span class="glyphicon glyphicon-on" aria-hidden="true"></span> AUTHORSIGNUP
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<img src = "http://www.grlresearch.com/images/bg.jpg" width="1250" height="500">
+{% block body%}
+{% endblock %}

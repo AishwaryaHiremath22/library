@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"href="{% static 'E_library/style.css' %}"/>
+
+<link rel="stylesheet" type="text/css" href="{% static 'E_library/style.css' %}"/>
+
+{% for i in event %}
+     <div class="col-sm-3 col-lg-2">
+         <div>
+             <p><br><img src = "{{ i.Picture.url }}" width = "200"  height="200" class="img-responsive"><br></p>
+
+             <h4 style="color: deeppink">{{ i.E_title }}</h4>
+         </div>
+         <a href="/E_library/authorlogin/{{ aid }}/deleteevent/delete/{{ i.E_title }}/" style="color: purple; border-color: purple; border-style: groove">DELETE</a>&nbsp;&nbsp;&nbsp;
+         <a href="/E_library/authorlogin/{{ aid }}/deleteevent/edit/{{ i.E_title }}/" style="color: purple; border-color: purple; border-style: groove">EDIT</a>
+
+     </div>
+{% endfor %}
